@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+	font-family: arial;
+	background-color: #cfe6fc;
+}
+#language {
+  width: 170px;
+  border-radius: 10px;
+  border-color: #5baaf5;
+}
+input {
+	border-radius: 10px;
+	border-color: #5baaf5;
+}
+#table {
+  border-collapse: collapse;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+#table td {
+	border: 1px solid white;
+	padding: 8px;
+}
+#table th {
+	border: 1px solid white;
+	background-color: #5baaf5;
+	padding: 8px;
+	color: white;
+}
+#table tr:nth-child(even){
+	background-color: #d8e2eb;
+}
+#table tr:nth-child(odd){
+	background-color: white;
+}
+button {
+	background-color: #5baaf5;
+	border-radius: 10px;
+	font-size: 16px;
+	padding: 5px;
+}
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+function saveStudent(){
+	var firstname = $("#firstname").val();
+	var lastname = $("#lastname").val();
+	var language = $("#language").val();
+	if(firstname=="") {
+		alert("First name can't be blank.");
+	} else if(lastname=="") {
+		alert("Last name can't be blank.");
+	} else {
+		var row = "<tr><td>" + firstname + "</td><td>" + lastname + "</td><td>" + language + "</td></tr>";
+		$("#table tbody").append(row);
+		$("#firstname").val("");
+		$("#lastname").val("");
+	}
+}
+</script>
+</head>
+<body>
+
+	<div style="width: 300px; margin: 0 auto;">
+		<h1 style="text-align: center;">New students</h1>
+		<table style="width: 100%;">
+			<tr>
+				<td style="width: 50%;">First name:</td>
+				<td style="width: 50%;"><input type="text" id="firstname"></td>
+			</tr><tr>
+				<td>Last name:</td>
+				<td><input type="text" id="lastname"></td>
+			</tr><tr>
+				<td>Course name:</td>
+				<td><select id="language">
+				  <option value="JavaScript">JavaScript</option>
+				  <option value="PHP">PHP</option>
+				  <option value="JAVA">JAVA</option>
+				  <option value="C++">C++</option>
+				</select></td>
+			</tr><tr>
+				<td colspan="2" style="text-align: center; padding: 10px;"><button type="button" onClick="saveStudent()">Submit</button></td>
+			</tr>
+		</table>
+	</div>
+	<br>
+	<table id="table">
+		<thead>
+			<tr>
+				<th>First name</th>
+				<th>Last name</th>
+				<th>Course name</th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+
+</body>
+</html>
