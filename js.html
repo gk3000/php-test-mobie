@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+    var DB = [];
+    function model(action, data, object){
+        for (x in data){
+            if(!object.includes(x)){
+                delete data[x];
+            }
+        }
+        DB.push(data);
+        return 1;
+    }
+</script>
+</head>
+</html>
